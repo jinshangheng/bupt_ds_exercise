@@ -6,7 +6,6 @@ typedef struct Node{
     struct Node * next;
 }Node, * LinkList;
 //type: Node
-
 //memory address(pointer): LinkList
 
 void init_list(LinkList &L, int n);

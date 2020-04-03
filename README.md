@@ -26,15 +26,15 @@
 ### 2239
 
 后缀表达式问题。本题两问，看似让你先利用中缀表达式求值，再将中缀表达式（正常表达式）转化为后缀表达式，实则不然。让我们不妨看一下后缀表达式求值有多么简单：
--1. 遍历后缀表达式，向栈中压入数字
--2. 遇到运算符则弹出两个元素，执行对应的操作，把结果压回栈中
--3. 直到栈里只有最后一个数字，输出，得到结果
+1. 遍历后缀表达式，向栈中压入数字
+2. 遇到运算符则弹出两个元素，执行对应的操作，把结果压回栈中
+3. 直到栈里只有最后一个数字，输出，得到结果
 后缀表达式求值利用栈法实现并不难，在这里不多加赘述了，详见源码。难点主要在于一些值类型的转化处理上面，例子中选用switch-case语句来处理复杂的char-float转化情况。在解决这一问之后，题的难点就集中在了如何从中缀表达式向后缀表达式转化上面。比较好的解法仍然是使用栈法，属于括号匹配问题的一个超集。建议通过回顾括号匹配问题，再在括号匹配代码为模版的基础上，拓展对于运算优先级的处理。
 
 ### 第一次作业
--1. $O(n) = \log_2(n)$
--2. $$O({(\frac{2}{3})}^n) < O(2^{100}) < O(\log_2(\log_2n)) < O(\log_2n) < O({(\log_2n)}^2) < O(\sqrt{n}) < O(n^{\frac{2}{3}}) < O(n) < O(n\log_2n) < O(n^{\frac{3}{2}}) < O(n^{\log_2n}) < O((\frac{4}{3})^n) < O((\frac{3}{2})^n) < O(n!) < O(n^n)$$
--3. (4) (1) // (7) (11) (8) (4) (1) // (5) (12)// (9) (6) (1) 
--4. (11) (3) (14) // (10) (12) (8) (11) (3) (14) // (10) (12) (7) (3) (14) // (12) (11) (3) (14) // (9) (11) (14)
--5. 321 // S1S2S3S4X4X3S5S6X5X6 剩余12，无法先1后2 // S1X1S2S3X3S4S5X5X4X2S6X2 可行
--6. 队列倒排
+1. <a href="https://www.codecogs.com/eqnedit.php?latex=O(n)&space;=&space;\log_2(n)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O(n)&space;=&space;\log_2(n)" title="O(n) = \log_2(n)" /></a>
+2. <a href="https://www.codecogs.com/eqnedit.php?latex=O({(\frac{2}{3})}^n)&space;<&space;O(2^{100})&space;<&space;O(\log_2(\log_2n))&space;<&space;O(\log_2n)&space;<&space;O({(\log_2n)}^2)&space;<&space;O(\sqrt{n})&space;<&space;O(n^{\frac{2}{3}})&space;<&space;O(n)&space;<&space;O(n\log_2n)&space;<&space;O(n^{\frac{3}{2}})&space;<&space;O(n^{\log_2n})&space;<&space;O((\frac{4}{3})^n)&space;<&space;O((\frac{3}{2})^n)&space;<&space;O(n!)&space;<&space;O(n^n)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?O({(\frac{2}{3})}^n)&space;<&space;O(2^{100})&space;<&space;O(\log_2(\log_2n))&space;<&space;O(\log_2n)&space;<&space;O({(\log_2n)}^2)&space;<&space;O(\sqrt{n})&space;<&space;O(n^{\frac{2}{3}})&space;<&space;O(n)&space;<&space;O(n\log_2n)&space;<&space;O(n^{\frac{3}{2}})&space;<&space;O(n^{\log_2n})&space;<&space;O((\frac{4}{3})^n)&space;<&space;O((\frac{3}{2})^n)&space;<&space;O(n!)&space;<&space;O(n^n)" title="O({(\frac{2}{3})}^n) < O(2^{100}) < O(\log_2(\log_2n)) < O(\log_2n) < O({(\log_2n)}^2) < O(\sqrt{n}) < O(n^{\frac{2}{3}}) < O(n) < O(n\log_2n) < O(n^{\frac{3}{2}}) < O(n^{\log_2n}) < O((\frac{4}{3})^n) < O((\frac{3}{2})^n) < O(n!) < O(n^n)" /></a>
+3. (4) (1) // (7) (11) (8) (4) (1) // (5) (12)// (9) (6) (1) 
+4. (11) (3) (14) // (10) (12) (8) (11) (3) (14) // (10) (12) (7) (3) (14) // (12) (11) (3) (14) // (9) (11) (14)
+5. 321 // S1S2S3S4X4X3S5S6X5X6 剩余12，无法先1后2 // S1X1S2S3X3S4S5X5X4X2S6X2 可行
+6. 队列倒排
